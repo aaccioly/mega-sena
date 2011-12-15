@@ -2,6 +2,7 @@ package com.sevenrtc.megasena
 
 import util.Random
 import collection.immutable.TreeSet
+import annotation.tailrec
 
 /**
  *
@@ -23,7 +24,7 @@ object Surpresinha {
       1 + RANDOM.nextInt(60)
     }
 
-    def geraApostaRecursiva(aposta: Set[Int]): Set[Int] = {
+    @tailrec def geraApostaRecursiva(aposta: Set[Int]): Set[Int] = {
       if (aposta.size < 6)
         geraApostaRecursiva(aposta + getNumber)
       else
